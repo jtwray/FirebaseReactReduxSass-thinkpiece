@@ -19,28 +19,7 @@ class Application extends Component {
   componentWillUnmount = _ => {
     this.unsubscribe();
   };
-{/*
-  handleRemove = async id => {
-    firestore.doc(`posts/${id}`).delete();
 
-    {
-      /*const allPosts = [...this.state.posts];
-    await firestore.doc(`posts/${id}`).delete();
-    const posts = allPosts.filter(post => post.id !== id);
-    this.setState({ posts });
-    }
-  };
-*/}
-{      /*
-  handleCreate = async post => {
-    firestore.collection("posts").add(post);
-      const docRef = await firestore.collection("posts").add(post);
-    const doc = await docRef.get();
-    const newPost = collectIdsAndDocs(doc);
-    const { posts } = this.state;
-    this.setState({ posts: [newPost, ...posts] });
-};
-*/    }
 
   render() {
     const { posts } = this.state;
