@@ -21,20 +21,25 @@ class Application extends Component {
   };
 
   handleRemove = async id => {
-    const allPosts = [...this.state.posts];
+    firestore.doc(`posts/${id}`).delete();
+
+    {
+      /*const allPosts = [...this.state.posts];
     await firestore.doc(`posts/${id}`).delete();
     const posts = allPosts.filter(post => post.id !== id);
-
-    this.setState({ posts });
+    this.setState({ posts });*/
+    }
   };
 
   handleCreate = async post => {
-    const docRef = await firestore.collection("posts").add(post);
+    firestore.collection("posts").add(post);
+    {
+      /*const docRef = await firestore.collection("posts").add(post);
     const doc = await docRef.get();
-
     const newPost = collectIdsAndDocs(doc);
     const { posts } = this.state;
-    this.setState({ posts: [newPost, ...posts] });
+    this.setState({ posts: [newPost, ...posts] });*/
+    }
   };
 
   render() {
