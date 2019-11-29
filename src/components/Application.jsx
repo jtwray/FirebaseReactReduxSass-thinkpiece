@@ -19,7 +19,7 @@ class Application extends Component {
   componentWillUnmount = _ => {
     this.unsubscribe();
   };
-
+{/*
   handleRemove = async id => {
     firestore.doc(`posts/${id}`).delete();
 
@@ -27,20 +27,20 @@ class Application extends Component {
       /*const allPosts = [...this.state.posts];
     await firestore.doc(`posts/${id}`).delete();
     const posts = allPosts.filter(post => post.id !== id);
-    this.setState({ posts });*/
+    this.setState({ posts });
     }
   };
-
+*/}
+{      /*
   handleCreate = async post => {
     firestore.collection("posts").add(post);
-    {
-      /*const docRef = await firestore.collection("posts").add(post);
+      const docRef = await firestore.collection("posts").add(post);
     const doc = await docRef.get();
     const newPost = collectIdsAndDocs(doc);
     const { posts } = this.state;
-    this.setState({ posts: [newPost, ...posts] });*/
-    }
-  };
+    this.setState({ posts: [newPost, ...posts] });
+};
+*/    }
 
   render() {
     const { posts } = this.state;
@@ -50,8 +50,8 @@ class Application extends Component {
         <h1>Think Piece</h1>
         <Posts
           posts={posts}
-          onCreate={this.handleCreate}
-          onRemove={this.handleRemove}
+      
+      
         />
       </main>
     );
