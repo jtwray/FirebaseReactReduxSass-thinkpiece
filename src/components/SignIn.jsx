@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { signInWithPopup} from '../firebase';
+import { signInWithPopup, signInWithRedirect, signInWithPhoneNumber} from '../firebase';
 
 class SignIn extends Component {
   state = { email: '', password: '' };
@@ -37,7 +37,10 @@ class SignIn extends Component {
           onChange={this.handleChange}
         />
         <input type="submit" value="Sign In" />
-        <button onClick={signInWithPopup}>Sign In With Google</button>
+        <button onClick={()=>signInWithRedirect()}>Sign In With Google Round&Back</button>
+        <button onClick={()=>signInWithPopup()}>Sign In With Google Popup</button>
+        <button onClick={()=>signInWithPhoneNumber()}>Sign In With sign In With PhoneNumber</button>
+        {/* <button onClick={()=>signInWithGithub()}>Sign In With sign In With Github</button> */}
       </form>
     );
   }
