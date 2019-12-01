@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { signInWithPopup, signInWithRedirect, signInWithPhoneNumber} from '../firebase';
+import React, { Component } from "react";
+import {signInWithGoogle,  signInWithGithub, signInWithFacebook} from "../firebase";
 
 class SignIn extends Component {
-  state = { email: '', password: '' };
+  state = { email: "", password: "" };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -13,7 +13,7 @@ class SignIn extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    this.setState({ email: '', password: '' });
+    this.setState({ email: "", password: "" });
   };
 
   render() {
@@ -37,10 +37,15 @@ class SignIn extends Component {
           onChange={this.handleChange}
         />
         <input type="submit" value="Sign In" />
-        <button onClick={()=>signInWithRedirect()}>Sign In With Google Round&Back</button>
-        <button onClick={()=>signInWithPopup()}>Sign In With Google Popup</button>
-        <button onClick={()=>signInWithPhoneNumber()}>Sign In With sign In With PhoneNumber</button>
-        {/* <button onClick={()=>signInWithGithub()}>Sign In With sign In With Github</button> */}
+        <button onClick={() => signInWithGoogle()}>
+          Sign In With Google 
+        </button>
+        <button onClick={() => signInWithGithub()}>
+          Sign In With Github 
+        </button>
+        <button onClick={() => signInWithFacebook()}>
+          Sign In With Facebook
+        </button>
       </form>
     );
   }

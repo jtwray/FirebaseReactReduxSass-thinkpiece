@@ -21,17 +21,20 @@ if (process.env.node_env === 'development') {
     window.firebase = firebase;
 }
 
-
-
-
-
 export const firestore = firebase.firestore();
 export const auth = firebase.auth();
 
-export const provider = new firebase.auth.GoogleAuthProvider()
-export const signInWithPopup = () => auth.signInWithPopup(provider)
-export const signInWithPhoneNumber = () => auth.signInWithPhoneNumber(provider)
-export const signInWithRedirect = () => auth.signInWithRedirect(provider)
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const githubProvider = new firebase.auth.GithubAuthProvider()
+export const fbProvider = new firebase.auth.FacebookAuthProvider()
+
+
+const firebaseAuth = provider => auth.signInWithRedirect(provider);
+
+export const signInWithGoogle = () => firebaseAuth(googleProvider)
+export const signInWithGithub = () => firebaseAuth(githubProvider)
+export const signInWithFacebook = () => firebaseAuth(fbProvider)
+
 
 export const signOut = () => auth.signOut()
 export default firebase

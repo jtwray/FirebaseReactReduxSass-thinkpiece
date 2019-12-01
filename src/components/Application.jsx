@@ -18,15 +18,15 @@ class Application extends Component {
 
         this.setState({ posts });
       });
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(
+        user => {this.setState({ user });
     });
   };
 
   componentWillUnmount = _ => {
     this.unsubscribeFromFirestore();
     this.unsubscribeFromAuth();
-  };
+  };      
 
   render() {
     const { posts, user } = this.state;
@@ -35,7 +35,9 @@ class Application extends Component {
       <main className="Application">
         <h1>Think Piece</h1>
         <Authentication user={user} />
+
         <Posts posts={posts} />
+  
       </main>
     );
   }
